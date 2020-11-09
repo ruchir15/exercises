@@ -1,0 +1,35 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: app
+      POSTGRES_DB: postgres
+
+  app:
+    image: nodejs-server-env
+    depends_on:
+      - "postgres"
+    links:
+      - "postgres"
+    environment:
+      PASSWORD: 'password'
+      USERNAME: 'app'
+      DATABASE: 'postgres'
+      DB_HOST: 'postgres'
+      PORT: 3000
+    ports:
+      - '3000:3000'
+
+  web:
+   image: nodejs-server-env1
+   depends_on:
+       - "app"
+   links:
+      - "app"
+   environment:
+      REACT_APP_API_URL: "http://app:3000/api"
+      PORT: 8081
+   ports:
+     - '8081:8081'
