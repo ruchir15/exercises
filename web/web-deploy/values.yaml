@@ -1,0 +1,10 @@
+---
+
+REACT_APP_API_URL: "https://ruchirdc.gq/api"
+
+IMAGE_WEB: registry.digitalocean.com/ruchir-excercise/web
+PORT: 3000
+
+API_PUBLIC_URL: ruchirdc.gq
+WEB_SERVICE_NAME: 'web'
+API_SERVICE_NAME: 'api'

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: 'web'
+  labels:
+     app: 'web'
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.PORT }}
+      targetPort: http-web
+  selector:
+      app: web

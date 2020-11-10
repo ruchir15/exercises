@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: regcred
+  namespace: '{{ .Release.Namespace }}'
+data:
+  .dockerconfigjson: ewogICAgICAgICJhdXRocyI6IHsKICAgICAgICAgICAgICAgICJyZWdpc3RyeS5kaWdpdGFsb2NlYW4uY29tIjogewogICAgICAgICAgICAgICAgICAgICAgICAiYXV0aCI6ICJNR0ppWVRReE9EQmpZVE01WXpZek1EVm1NV1k1TUdVeU5tUmpOak5pWXpVME9XWmpOamt5WkdOaU56WmlZVE5pT0RreU9EYzFPVFV3TWpKbVkyVTVZVG93WW1KaE5ERTRNR05oTXpsak5qTXdOV1l4Wmprd1pUSTJaR00yTTJKak5UUTVabU0yT1RKa1kySTNObUpoTTJJNE9USTROelU1TlRBeU1tWmpaVGxoIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgIH0KCSAgICAKfQo= 
+type: kubernetes.io/dockerconfigjson

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: 'api-config'
+  namespace: '{{ .Release.Namespace }}'
+data:
+   PASSWORD: '{{ .Values.POSTGRES_PASSWORD }}'
+   USERNAME: '{{ .Values.POSTGRES_USER }}'
+   DATABASE: '{{ .Values.POSTGRES_DB }}'
+   DB_HOST: '{{ .Values.DB_HOST }}'
+   PORT: '{{ .Values.PORT }}'

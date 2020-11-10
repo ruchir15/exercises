@@ -1,0 +1,6 @@
+---
+
+POSTGRES_NS: "postgres"
+POSTGRES_PASSWORD: "password"
+POSTGRES_USER: 'app'
+POSTGRES_DB: 'postgres'

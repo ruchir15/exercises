@@ -1,0 +1,45 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  namespace: '{{ .Release.Namespace }}'
+  name: 'http-gateway-{{ .Release.Namespace }}'
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: 'web'
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  hosts:
+  - "{{ .Values.API_PUBLIC_URL }}"
+  gateways:
+  - 'http-gateway-{{ .Release.Namespace }}'
+  http:
+   - match:
+     - uri:
+        prefix: "/api"
+     route:
+     - destination:
+        host: '{{ .Values.API_SERVICE_NAME }}.api.svc.cluster.local'
+        port:
+         number: 8080
+   - match:
+     - uri:
+        prefix: "/"
+     route:
+     - destination:
+        host: '{{ .Values.WEB_SERVICE_NAME }}.{{ .Release.Namespace }}.svc.cluster.local'
+        port:
+         number: 3000

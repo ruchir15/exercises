@@ -1,0 +1,13 @@
+---
+
+POSTGRES_NS: postgres
+POSTGRES_PASSWORD: password
+POSTGRES_USER: app
+POSTGRES_DB: postgres
+DB_HOST: 'postgres.postgres.svc.cluster.local'
+
+IMAGE_API: registry.digitalocean.com/ruchir-excercise/api
+PORT: 8080
+
+API_PUBLIC_URL: ruchirdc.gq
+API_SERVICE_NAME: 'api'

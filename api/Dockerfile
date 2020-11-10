@@ -2,14 +2,15 @@ FROM node:12
 
 WORKDIR /usr/src/app
 
-ENV PORT=3000
+ENV PORT=$PORT
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install \
+    && apt-get update && apt-get install -y --no-install-recommends postgresql-client
+
 
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
 CMD [ "node", "server.js" ]
