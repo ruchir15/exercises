@@ -29,5 +29,5 @@ jobs:
         run: |
           echo printing current directory
           ls -lt
-          helm version
-          docker version
+          pwd
+          git diff --name-only
