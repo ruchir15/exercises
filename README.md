@@ -38,27 +38,27 @@ The schema will automatically be created the first time the API is started and s
       - kubectl create ns postgres
       - helm install postgres postgres/ -n postgres
 
-   #Build 
+   ## Build 
       - sudo docker build -t registry.digitalocean.com/ruchir-excercise/api:1.0.0 -f Dockerfile
       - sudo docker push registry.digitalocean.com/ruchir-excercise/api:1.0.0
 
-   #Deploy
+   ## Deploy
       - kubectl create ns api
       - cd api
       - helm install api api-deploy/ -n api
 
-   #Build
+   ## Build
      - sudo docker build -t registry.digitalocean.com/ruchir-excercise/web:1.0.0 -f Dockerfile
      - sudo docker push registry.digitalocean.com/ruchir-excercise/web:1.0.0
 
-    #Deploy
+   ## Deploy
      - kubectl create ns web
      - cd ../web/
      - helm install web web-deploy/ -n web
 
 ## Netwroking Details
 
-   - Freenom is used to register domain ruchirdc.gq
+   - Freenom is used to register domain https://ruchirdc.gq (for me working from mozilla)
    - Digital Ocean name-servers maped to it
    - Let's encrypt certificate provided via Digtial ocean Got used for ssl termination
    - Istio-ingressgatway is used as ingress-controller
