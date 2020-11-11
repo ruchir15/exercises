@@ -27,7 +27,7 @@ for folder in $changed_folder
 
       echo "Configuring kubernetes access"
     
-      doctl kubernetes cluster kubeconfig save testing-cluster
+      doctl kubernetes cluster kubeconfig save k8s-1-19-3-do-2-blr1-1604930011463
   
       echo "deploying the chart on version $tag"
  
