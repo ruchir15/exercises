@@ -20,7 +20,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout master
         uses: actions/checkout@v2
-
+        with:
+           fetch-depth: 0
+      
+      - name: Get Github workspace
+        run: echo $GITHUB_WORKSPACE
+              
+     
       # Runs a single command using the runners shell
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
