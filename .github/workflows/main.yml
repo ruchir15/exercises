@@ -30,4 +30,7 @@ jobs:
           echo printing current directory
           ls -lt
           pwd
-          git diff --name-only
+          git diff
+          doctl
+          git diff HEAD~ --name-only | uniq
+          
