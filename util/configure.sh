@@ -2,15 +2,12 @@
 
 
 changed_folder=$(git diff HEAD~ --name-only | uniq)
-echo $folder
-
 tag=$(git log -1 --format=%h) 
 
 
 for folder in $changed_folder
  do
     dir=$(dirname "$folder")
-    echo $dir
     if [ "$dir" == 'api' ]; then
       echo "Change detected in api service"
       echo "Building rest api"
@@ -42,6 +39,9 @@ for folder in $changed_folder
       echo "Change detected in web service"
       echo "Building web UI"
       sudo docker build -t registry.digitalocean.com/ruchir-excercise/web:$tag -f web/Dockerfile web/.
+
+    else
+       echo "Change detected in $dir" 
 
     fi         
   
