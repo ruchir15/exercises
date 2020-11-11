@@ -31,7 +31,7 @@ for folder in $changed_folder
   
       echo "deploying the chart on version $tag"
  
-      helm install api api/api-deploy/ -n api
+      helm upgrade api api/api-deploy/ -n api
       
       
 
