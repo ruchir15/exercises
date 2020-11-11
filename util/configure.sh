@@ -23,7 +23,7 @@ for folder in $changed_folder
       sleep 10 
 
       echo "updating Chart Version in the Chart.yaml"
-      sed -i 's/build-version/$tag/g' api/api-deploy/Chart.yaml
+      sed -i "s/build-version/$tag/g" api/api-deploy/Chart.yaml
 
       echo "Configuring kubernetes access"
     
