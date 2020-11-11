@@ -28,12 +28,7 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo printing current directory
-          ls -lt
-          pwd
-          git diff
-          doctl
-          git diff HEAD~ --name-only | uniq
+      - name: Run build and deploy script
+        run: ./util/configure.sh
+          
           
