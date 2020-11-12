@@ -40,6 +40,25 @@ for folder in $changed_folder
       echo "Building web UI"
       sudo docker build -t registry.digitalocean.com/ruchir-excercise/web:$tag -f web/Dockerfile web/.
 
+      echo "Logging into docker registery"
+      doctl registry login --expiry-seconds 600
+
+      echo "Pushing container to docker registery"
+      sudo docker push registry.digitalocean.com/ruchir-excercise/web:$tag
+
+      sleep 10 
+
+      echo "updating Chart Version in the Chart.yaml"
+      sed -i "s/build-version/$tag/g" web/web-deploy/Chart.yaml
+
+      echo "Configuring kubernetes access"
+
+      doctl kubernetes cluster kubeconfig save k8s-1-19-3-do-2-blr1-1604930011463
+
+      echo "deploying the chart on version $tag"
+
+      helm upgrade web web/web-deploy/ -n web
+
     else
        echo "Change detected in $dir" 
 
