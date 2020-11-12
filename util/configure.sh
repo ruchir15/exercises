@@ -7,7 +7,7 @@ tag=$(git log -1 --format=%h)
 
 for folder in $changed_folder
  do
-    dir=$(dirname "$folder")
+    dir=$(dirname "$folder" | cut -d "/" -f1 | uniq )
     if [ "$dir" == 'api' ]; then
       echo "Change detected in api service"
       echo "Building rest api"
