@@ -84,7 +84,7 @@ const Movies = () => {
         </div>
       </div>
       <div className="col-md-6">
-        <h4>Movie List is here</h4>
+        <h4>Movie List is here is updated </h4>
 
         <ul className="list-group">
           {movies &&
